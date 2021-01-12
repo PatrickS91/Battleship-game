@@ -7,6 +7,7 @@ public class PlayGame {
 	public static String[][] board = new String[5][];
 	public static boolean win = false;
 	public static boolean repeatRound = false;
+	public static Scanner myInt = new Scanner(System.in);
 	
 	public static void main(String[] args) {
 
@@ -29,6 +30,7 @@ public class PlayGame {
 		//System.out.println(randomColumn);
 		int round = 0;
 		while (round < 3) {
+			System.out.println("Round: " + (round + 1));
 			playRound(randomRow, randomColumn);
 			printBoard(board);
 			if (repeatRound == false) {
@@ -42,6 +44,7 @@ public class PlayGame {
 			System.out.println("You didn't destroy the battleship in time.");
 		}
 		System.out.println("Thank you for playing.");
+		myInt.close();
 	}
 	
 
@@ -54,18 +57,19 @@ public class PlayGame {
 			}
 			System.out.println(row);
 		}
+		System.out.println();
 	}
 	
 	public static void playRound(int shipRow, int shipColumn) {
-		Scanner myInt = new Scanner(System.in);
+		//Scanner myInt = new Scanner(System.in);
 		repeatRound = false;
 		try {
 			System.out.println("Please enter a row and press enter.");
 			int guessRow = myInt.nextInt();
-			System.out.println("Row: " + guessRow);
+			//System.out.println("Row: " + guessRow);
 			System.out.println("Please enter a column and press enter.");
 			int guessColumn = myInt.nextInt();
-			System.out.println("Column: " + guessColumn);
+			//System.out.println("Column: " + guessColumn);
 			
 			if (shipRow == guessRow && shipColumn == guessColumn) {
 				System.out.println("Congratulations, you hit the battleship!");
